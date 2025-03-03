@@ -11,8 +11,7 @@ use Doctrine\ORM\Query\TokenType;
 
 /**
  * @author Piotr Reclik <reclikp@gmail.com>
- *
- * @example SELECT LIMIT((subquery), limitValue)
+ * @example SELECT LIMIT(limitValue, (sub-query))
  */
 class Limit extends FunctionNode
 {
@@ -24,7 +23,7 @@ class Limit extends FunctionNode
 
     public function getSql(SqlWalker $sqlWalker): string
     {
-        return "{$this->subSelect->dispatch($sqlWalker)} LIMIT {$this->limit->dispatch($sqlWalker)}";
+        return "({$this->subSelect->dispatch($sqlWalker)} LIMIT {$this->limit->dispatch($sqlWalker)})";
     }
 
     public function parse(Parser $parser): void
