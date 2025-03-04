@@ -1,10 +1,10 @@
 <?php
 
-namespace DoctrineExtensions\Tests\Query\Postgresql;
+namespace DoctrineExtensions\Tests\Query\Mysql;
 
-use DoctrineExtensions\Tests\Query\PostgresqlTestCase;
+use DoctrineExtensions\Tests\Query\MysqlTestCase;
 
-class LimitTest extends PostgresqlTestCase
+class LimitTest extends MysqlTestCase
 {
     public function testLimit(): void
     {
